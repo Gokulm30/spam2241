@@ -37,7 +37,8 @@ def preprocess_sms(sms_text):
     cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
 
     # 2. Tokenization
-    tokens = nltk.word_tokenize(cleaned_text)
+    tokens = cleaned_text.split()
+
 
     # 3. Removing Stopwords
     tokens = [word for word in tokens if word.lower() not in stop_words]
@@ -96,3 +97,4 @@ if st.button("Predict"):
             st.success(f"Prediction: {prediction.upper()}")
     else:
         st.warning("Please enter an SMS message to predict.")
+
